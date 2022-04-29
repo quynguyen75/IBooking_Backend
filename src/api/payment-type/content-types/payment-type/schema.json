@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payment_types",
+  "info": {
+    "singularName": "payment-type",
+    "pluralName": "payment-types",
+    "displayName": "PaymentType",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "bookings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::booking.booking",
+      "mappedBy": "paymentType"
+    },
+    "status": {
+      "type": "string",
+      "required": true,
+      "default": "Active"
+    }
+  }
+}

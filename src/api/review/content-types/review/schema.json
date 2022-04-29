@@ -1,0 +1,77 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reviews",
+  "info": {
+    "singularName": "review",
+    "pluralName": "reviews",
+    "displayName": "Review",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "string"
+    },
+    "cleanlinessStar": {
+      "type": "integer",
+      "max": 5,
+      "min": 0,
+      "default": 0
+    },
+    "accuracyStar": {
+      "type": "integer",
+      "max": 5,
+      "min": 0,
+      "default": 0
+    },
+    "communicationStar": {
+      "type": "integer",
+      "max": 5,
+      "min": 0,
+      "default": 0
+    },
+    "locationStar": {
+      "type": "integer",
+      "max": 5,
+      "min": 0,
+      "default": 0
+    },
+    "checkInStar": {
+      "type": "integer",
+      "max": 5,
+      "min": 0,
+      "default": 0
+    },
+    "valueStar": {
+      "type": "integer",
+      "max": 5,
+      "min": 0,
+      "default": 0
+    },
+    "status": {
+      "type": "string",
+      "default": "Active"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "reviews"
+    },
+    "booking": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::booking.booking",
+      "mappedBy": "review"
+    },
+    "room": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::room.room",
+      "inversedBy": "reviews"
+    }
+  }
+}

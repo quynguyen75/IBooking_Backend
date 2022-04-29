@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "room_types",
+  "info": {
+    "singularName": "room-type",
+    "pluralName": "room-types",
+    "displayName": "RoomType",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "rooms": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::room.room",
+      "mappedBy": "roomType"
+    },
+    "status": {
+      "type": "string",
+      "default": "Active",
+      "required": true
+    }
+  }
+}

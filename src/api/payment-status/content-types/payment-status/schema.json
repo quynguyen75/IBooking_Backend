@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payment_statuses",
+  "info": {
+    "singularName": "payment-status",
+    "pluralName": "payment-statuses",
+    "displayName": "PaymentStatus",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "bookings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::booking.booking",
+      "mappedBy": "paymentStatus"
+    },
+    "status": {
+      "type": "string",
+      "required": true,
+      "default": "Active"
+    }
+  }
+}

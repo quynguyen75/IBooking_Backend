@@ -1,0 +1,79 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bookings",
+  "info": {
+    "singularName": "booking",
+    "pluralName": "bookings",
+    "displayName": "Booking",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "checkInDate": {
+      "type": "date"
+    },
+    "checkOutDate": {
+      "type": "date"
+    },
+    "guestCount": {
+      "type": "integer"
+    },
+    "nightPrice": {
+      "type": "float"
+    },
+    "cleanlinessFee": {
+      "type": "float"
+    },
+    "totalPrice": {
+      "type": "float"
+    },
+    "bookedAt": {
+      "type": "datetime"
+    },
+    "paymentAt": {
+      "type": "datetime"
+    },
+    "paymentReference": {
+      "type": "string"
+    },
+    "bookingStatus": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::booking-status.booking-status",
+      "inversedBy": "bookings"
+    },
+    "paymentStatus": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::payment-status.payment-status",
+      "inversedBy": "bookings"
+    },
+    "paymentType": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::payment-type.payment-type",
+      "inversedBy": "bookings"
+    },
+    "review": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::review.review",
+      "inversedBy": "booking"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "bookings"
+    },
+    "room": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::room.room",
+      "inversedBy": "bookings"
+    }
+  }
+}

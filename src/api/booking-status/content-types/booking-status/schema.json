@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "booking_statuses",
+  "info": {
+    "singularName": "booking-status",
+    "pluralName": "booking-statuses",
+    "displayName": "BookingStatus",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "bookings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::booking.booking",
+      "mappedBy": "bookingStatus"
+    },
+    "status": {
+      "type": "string",
+      "default": "Active",
+      "required": true
+    }
+  }
+}

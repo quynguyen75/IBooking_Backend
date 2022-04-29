@@ -1,0 +1,139 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rooms",
+  "info": {
+    "singularName": "room",
+    "pluralName": "rooms",
+    "displayName": "Room",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "string"
+    },
+    "guestCount": {
+      "type": "integer",
+      "default": 0
+    },
+    "acceptPet": {
+      "type": "boolean",
+      "default": false
+    },
+    "bedCount": {
+      "type": "integer",
+      "default": 0
+    },
+    "livingRoomCount": {
+      "type": "integer",
+      "default": 0
+    },
+    "bedRoomCount": {
+      "type": "integer",
+      "default": 0
+    },
+    "bathRoomCount": {
+      "type": "integer",
+      "default": 0
+    },
+    "nightPrice": {
+      "type": "float"
+    },
+    "cleanlinessFee": {
+      "type": "float"
+    },
+    "hasPool": {
+      "type": "boolean",
+      "default": false
+    },
+    "hasWifi": {
+      "type": "boolean",
+      "default": false
+    },
+    "hasGym": {
+      "type": "boolean",
+      "default": false
+    },
+    "hasConditioning": {
+      "type": "boolean",
+      "default": false
+    },
+    "hasKitchen": {
+      "type": "boolean",
+      "default": false
+    },
+    "hasWashingMachine": {
+      "type": "boolean",
+      "default": false
+    },
+    "hasDedicatedWorkspace": {
+      "type": "boolean",
+      "default": false
+    },
+    "street": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "zipcode": {
+      "type": "string"
+    },
+    "latitude": {
+      "type": "string"
+    },
+    "longitude": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "default": "Active",
+      "required": true
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "roomType": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::room-type.room-type",
+      "inversedBy": "rooms"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "rooms"
+    },
+    "bookings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::booking.booking",
+      "private": true,
+      "mappedBy": "room"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "room"
+    }
+  }
+}
