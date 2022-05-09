@@ -1,3 +1,5 @@
+const qs = require("qs");
+
 module.exports = (plugin) => {
   const sanitizeOutput = (user) => {
     const {
@@ -38,9 +40,14 @@ module.exports = (plugin) => {
   };
 
   plugin.controllers.user.find = async (ctx) => {
+    let config = {};
+    const params = ctx.request.url.split("?");
+    if (params.length >= 2) {
+      config = qs.parse(params[1]);
+    }
     const users = await strapi.entityService.findMany(
       "plugin::users-permissions.user",
-      { ...ctx.params, populate: "*" }
+      config
     );
 
     ctx.body = users.map((user) => sanitizeOutput(user));
