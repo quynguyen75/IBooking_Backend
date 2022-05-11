@@ -4,5 +4,5 @@ module.exports = ({ env }) => ({
   app: {
     keys: env.array("APP_KEYS"),
   },
-  // url: env("", "https://4ef7-116-110-41-32.ngrok.io"),
+  url: env("", "https://ibooking-backend.herokuapp.com/"),
 });
