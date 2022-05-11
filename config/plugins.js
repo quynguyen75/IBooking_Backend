@@ -4,7 +4,8 @@ module.exports = ({ env }) => ({
     config: {
       provider: "sendgrid",
       providerOptions: {
-        apiKey: env("SENDGRID_API_KEY"),
+        apiKey:
+          "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",
       },
       settings: {
         defaultFrom: "quy.nguyen@siliconstack.com.au",
