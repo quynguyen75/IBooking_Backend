@@ -120,7 +120,6 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::booking.booking",
-      "private": true,
       "mappedBy": "room"
     },
     "reviews": {
