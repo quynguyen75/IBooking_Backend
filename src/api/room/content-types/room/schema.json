@@ -130,6 +130,9 @@
     },
     "district": {
       "type": "string"
+    },
+    "houseNumber": {
+      "type": "string"
     }
   }
 }
