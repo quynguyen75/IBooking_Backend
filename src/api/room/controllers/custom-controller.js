@@ -11,4 +11,19 @@ module.exports = createCoreController("api::room.room", ({ strapi }) => ({
       count: data.length,
     };
   },
+
+  async search(ctx) {
+    const query = ctx.query;
+
+    const rooms = await strapi.db.query("api::room.room").findMany({
+      where: {
+        ...query.filters,
+      },
+      populate: query.populate,
+    });
+
+    const sanitizedEntity = await this.sanitizeOutput(rooms, ctx);
+
+    return this.transformResponse(sanitizedEntity);
+  },
 }));
