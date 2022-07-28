@@ -1,4 +1,5 @@
 const { createCoreController } = require("@strapi/strapi").factories;
+const moment = require("moment");
 
 function checkCorrespondRoom(room, checkInDate, checkOutDate) {
   const bookings = room.bookings;
